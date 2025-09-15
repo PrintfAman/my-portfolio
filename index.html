@@ -20,46 +20,47 @@
       </p>
     </div>
 
-
     <div class="progress-container">
       <h2>SKILLS</h2>
-      <button class="buttons" onclick ="startProgress('progress-html', 90)">HTML</button>
+
+      <!-- removed onclick, now just a label -->
+      <button class="buttons">HTML</button>
       <div class="progress-bar">
         <div class="progress-fill" id="progress-html">90%</div>
       </div>
     </div>
+
     <div class="progress-container">
-      <button class="buttons" onclick="startProgress('progress-css', 75)">CSS</button>
+      <button class="buttons">CSS</button>
       <div class="progress-bar">
         <div class="progress-fill" id="progress-css">75%</div>
       </div>
     </div>
+
     <div class="progress-container">
-      <button class="buttons" onclick="startProgress('progress-javascript', 15)">JavaScript</button>
+      <button class="buttons">JavaScript</button>
       <div class="progress-bar">
         <div class="progress-fill" id="progress-javascript">15%</div>
       </div>
     </div>
+
     <div class="id">
-      <button class="buttons" onclick="startProgress('progress-cpp', 60)">C/C++</button>
+      <button class="buttons">C/C++</button>
       <div class="id-bar">
         <div class="progress-fill" id="progress-cpp">40%</div>
       </div>
     </div>
+
     <div class="id">
-      <button class="buttons" onclick="startProgress('progress-mysql', 55)">MySQL</button>
+      <button class="buttons">MySQL</button>
       <div class="id-bar">
         <div class="progress-fill" id="progress-mysql">55%</div>
       </div>
     </div>
 
-  
     <h2>MY PROJECTS</h2>
 
-   
-
     <div class="chatillusion-card">
-      
       <img src="https://www.nicepng.com/png/detail/154-1545850_portfolio-icon-ks-icon.png" alt="Chat Illusion Preview" class="chatillusion-img">
 
       <div class="chatillusion-details">
@@ -73,12 +74,11 @@
         </div>
 
         <div class="chatillusion-links">
-          <a href="https://amxnn.netlify.app/" target="_blank">🔗 Live Demo</a>
+          <a href="http://127.0.0.1:5500/Untitled-3.html" target="_blank">🔗 Live Demo</a>
         </div>
       </div>
     </div>
 
-    
     <div class="chatillusion-card">
       <img src="https://img.freepik.com/free-vector/gradient-whatsapp-chat-template_23-2151213341.jpg" alt="Chat Illusion Preview" class="chatillusion-img">
 
@@ -99,8 +99,6 @@
       </div>
     </div>
 
-  
-
   <script>
     function startProgress(id, target) {
       let elem = document.getElementById(id);
@@ -116,6 +114,15 @@
       }, 30);
     }
 
+    // automatically start progress bars on page load
+    window.onload = function () {
+      startProgress('progress-html', 90);
+      startProgress('progress-css', 75);
+      startProgress('progress-javascript', 15);
+      startProgress('progress-cpp', 60);
+      startProgress('progress-mysql', 55);
+    };
+
     const starsContainer = document.getElementById("stars");
     for (let i = 0; i < 100; i++) {
       let star = document.createElement("div");
@@ -128,8 +135,8 @@
   </script>
 
   <footer style="text-align: center;">
-    <a href="https://amxnn.netlify.app/" style="color: chocolate;">HOME | ABOUT | CONTACT</a>
+    <a href="http://127.0.0.1:5500/8.4+Web+Design+Agency+Project/8.4%20Web%20Design%20Agency%20Project/Untitled-1.html" style="color: chocolate;">HOME | ABOUT | CONTACT</a>
   </footer>
 </body>
-
 </html>
+
