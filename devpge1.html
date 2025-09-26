@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="./unt 1.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+
+    <div class="main">
+      <h1>AMANPREET SINGH KHANNA <span class="title"><br>DEVELOPER|EDITOR|GAMER</span></h1>
+
+      <h2>ABOUT</h2>
+      <p class="about" style="font-style:oblique;color: #f0eaea;">
+        Im an aspiring Full Stack Developer, currently learning both front-end and back-end technologies to build modern, user-friendly web applications. I enjoy problem-solving, creating, and constantly improving my skills. Alongside my coding journey, I also work as a freelance video editor, bringing creative ideas to life through engaging visual content.
+        <br><br>
+        Beyond tech, Im also a district-level cricketer — a passion that has taught me discipline, teamwork, resilience, and the importance of continuous practice, all of which I bring into my professional life as well. Always curious and driven, Im excited about opportunities to collaborate, learn, and grow across both tech and creative fields
+      </p>
+    </div>
+
+    <div class="progress-container">
+      <h2>SKILLS</h2>
+
+      <!-- removed onclick, now just a label -->
+      <button class="buttons">HTML</button>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-html">90%</div>
+      </div>
+    </div>
+
+    <div class="progress-container">
+      <button class="buttons">CSS</button>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-css">75%</div>
+      </div>
+    </div>
+
+    <div class="progress-container">
+      <button class="buttons">JavaScript</button>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-javascript">15%</div>
+      </div>
+    </div>
+
+    <div class="id">
+      <button class="buttons">C/C++</button>
+      <div class="id-bar">
+        <div class="progress-fill" id="progress-cpp">40%</div>
+      </div>
+    </div>
+
+    <div class="id">
+      <button class="buttons">MySQL</button>
+      <div class="id-bar">
+        <div class="progress-fill" id="progress-mysql">55%</div>
+      </div>
+    </div>
+
+    <h2>MY PROJECTS</h2>
+
+    <div class="chatillusion-card">
+      <img src="https://www.nicepng.com/png/detail/154-1545850_portfolio-icon-ks-icon.png" alt="Chat Illusion Preview" class="chatillusion-img">
+
+      <div class="chatillusion-details">
+        <h3>portfolio</h3>
+        <p>MY PORTFOLIO WHICH TELLS YOU ABOUT ME.</p>
+
+        <div class="chatillusion-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+
+        <div class="chatillusion-links">
+          <a href="http://127.0.0.1:5500/Untitled-3.html" target="_blank">🔗 Live Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="chatillusion-card">
+      <img src="https://img.freepik.com/free-vector/gradient-whatsapp-chat-template_23-2151213341.jpg" alt="Chat Illusion Preview" class="chatillusion-img">
+
+      <div class="chatillusion-details">
+        <h3>Chat Illusion</h3>
+        <p>A fun web app that mimics WhatsApp chats. Users can create and export custom conversations for memes, storytelling, and content creation.</p>
+        <p class="chatillusion-disclaimer">Disclaimer: For entertainment purposes only.</p>
+
+        <div class="chatillusion-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+
+        <div class="chatillusion-links">
+          <a href="https://chatillusion.netlify.app/" target="_blank">🔗 Live Demo</a>
+        </div>
+      </div>
+    </div>
+
+  <script>
+    function startProgress(id, target) {
+      let elem = document.getElementById(id);
+      let width = 0;
+      let interval = setInterval(() => {
+        if (width >= target) {
+          clearInterval(interval);
+        } else {
+          width++;
+          elem.style.width = width + "%";
+          elem.textContent = width + "%";
+        }
+      }, 30);
+    }
+
+    // automatically start progress bars on page load
+    window.onload = function () {
+      startProgress('progress-html', 90);
+      startProgress('progress-css', 65);
+      startProgress('progress-javascript', 15);
+      startProgress('progress-cpp', 50);
+      startProgress('progress-mysql', 55);
+    };
+
+    const starsContainer = document.getElementById("stars");
+    for (let i = 0; i < 100; i++) {
+      let star = document.createElement("div");
+      star.className = "stars";
+      star.style.top = Math.random() * window.innerHeight + "px";
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      document.body.appendChild(star);
+    }
+  </script>
+
+  <footer style="text-align: center;">
+    <a href="http://127.0.0.1:5500/8.4+Web+Design+Agency+Project/8.4%20Web%20Design%20Agency%20Project/Untitled-1.html" style="color: chocolate;">HOME | ABOUT | CONTACT</a>
+  </footer>
+</body>
+</html>
+
