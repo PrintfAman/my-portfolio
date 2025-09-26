@@ -5,7 +5,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 95vh;
-  background: linear-gradient(-45deg, #424040, #393939, #2e2d2f, #1c1b1b);
+ background: linear-gradient(-45deg, #141111, #090808, #0b090d, #1c1b1b);
   background-size: 400% 400%;
   animation: gradientBG 10s ease infinite;
 }
@@ -175,5 +175,6 @@ h2 {
   transition: all 0.3 ease;
   transform: translateY(-2px);
   background: #39312d;
+
 
 }
