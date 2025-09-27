@@ -2,7 +2,411 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--
+  Portfolio Homepage - ADVANCED Full-Screen Hero Section
+  Theme: Orange and Black (Optimized Dark Theme)
+  Features: Cyber Synth Avatar, Wavy Name, Social Media Icons, Digital Flicker Buttons, Ambient Screen Grain, and ADVANCED CANVAS STARFIELD BACKGROUND.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amanpreet Singh Khanna - Portfolio Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        :root {
+            --color-black: #000000;
+            --color-dark-gray: #1a1a1a;
+            --color-orange: #ff7043; 
+            --color-yellow: #ffb74d; 
+            --color-text: #ffffff;
+            --shadow-orange-soft: 0 0 10px rgba(255, 112, 67, 0.4);
+            --shadow-orange-strong: 0 0 20px rgba(255, 112, 67, 1);
+            --hud-dark: rgba(0, 0, 0, 0.85); /* Dark transparent background for fixed elements */
+        }
+
+        /* --- ADVANCED CANVAS STARFIELD BACKGROUND --- */
+        #starfieldCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 1; 
+            background-color: var(--color-black); 
+        }
+        
+        /* --- Main Content Styles (Full-Screen Hero) --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-black); 
+            color: var(--color-text);
+            /* Full-screen Flexbox centering */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden; 
+            position: relative;
+        }
+
+        /* --- UI/UX ENHANCEMENT: AMBIENT SCREEN GRAIN OVERLAY --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000; /* High Z-index to cover everything */
+            pointer-events: none; /* Allows clicks to pass through */
+            opacity: 0.05; /* Very subtle opacity */
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.5) 0,
+                rgba(0, 0, 0, 0.5) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            /* Subtle animation to make the grain feel alive */
+            animation: grainScroll 10s steps(10) infinite;
+        }
+
+        @keyframes grainScroll {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 900px; 
+            text-align: center;
+            background-color: transparent; 
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- PROFILE IMAGE CONTAINER (Cool Frame) --- */
+        .profile-image-container {
+            margin-bottom: 30px;
+            display: inline-block;
+            border-radius: 50%;
+            position: relative; 
+            z-index: 100; 
+        }
+        
+        /* Animated Energy Ring (The "Cool" Effect) */
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            top: -15px; 
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border-radius: 50%;
+            background: conic-gradient(
+                transparent 0%, 
+                transparent 50%, 
+                var(--color-orange) 60%, 
+                var(--color-yellow) 70%, 
+                transparent 80%
+            );
+            z-index: -1; 
+            animation: rotateFrame 8s linear infinite; 
+            filter: blur(8px); 
+            opacity: 0.8;
+            will-change: transform, filter;
+        }
+
+        @keyframes rotateFrame {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 4px solid var(--color-dark-gray); 
+            box-shadow: 
+                inset 0 0 10px rgba(0, 0, 0, 0.8), 
+                var(--shadow-orange-soft); 
+        }
+        /* --- END PROFILE IMAGE CONTAINER --- */
+        
+        
+        /* New container for Wavy Text (The Name) */
+        .wavy-text {
+            font-size: clamp(2.2rem, 5vw, 4rem); 
+            font-weight: 900;
+            margin-bottom: 20px; /* Reduced margin to bring icons closer */
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap; 
+            white-space: nowrap; 
+        }
+        
+        .wavy-text span {
+            color: var(--color-black); 
+            text-shadow: 
+                0 0 4px var(--color-orange), 
+                0 0 10px var(--color-yellow); 
+            will-change: transform; 
+
+            display: inline-block;
+            animation: wave 1.5s infinite alternate;
+            margin: 0 1px; 
+            transform-origin: bottom; 
+        }
+        
+        @keyframes wave {
+            0% { transform: translateY(0px) scale(1); }
+            100% { transform: translateY(-5px) scale(1.05); }
+        }
+
+        /* --- NEW: Social Media Icons Layout --- */
+        .social-links {
+            margin-bottom: 50px; /* Space between icons and buttons */
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        
+        .social-link svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--color-text); /* Default color is white */
+            filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+            transition: fill 0.3s, transform 0.3s, filter 0.3s;
+        }
+        
+        .social-link:hover svg {
+            fill: var(--color-yellow);
+            transform: scale(1.1);
+            /* Neon glow effect on hover */
+            filter: drop-shadow(0 0 5px var(--color-orange)) drop-shadow(0 0 10px var(--color-yellow));
+        }
+
+
+        /* --- Button Layout (Simplified) --- */
+        .professions-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .profession-link {
+            text-decoration: none;
+            /* Restoring simple padding for single-line text */
+            padding: 15px 30px; 
+            border-radius: 50px;
+            font-weight: 700; 
+            color: var(--color-black);
+            background: linear-gradient(90deg, var(--color-orange), var(--color-yellow));
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 15px rgba(255, 165, 0, 0.8);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            
+            /* Removing status-related flex styles */
+            display: block; 
+            line-height: normal; 
+        }
+        
+        /* Removing status tag styles (was .module-status) */
+
+
+        .profession-link:hover {
+            transform: translateY(-5px) scale(1.05); /* Slight lift */
+            box-shadow: 0 10px 20px rgba(255, 165, 0, 1.2); 
+            /* Trigger the flicker effect on hover */
+            animation: flicker 0.2s linear 1;
+        }
+        
+        /* --- UI/UX ENHANCEMENT: BUTTON GLITCH/FLICKER EFFECT --- */
+        @keyframes flicker {
+            0%, 100% { box-shadow: 0 10px 20px rgba(255, 165, 0, 1.2); }
+            50% { 
+                box-shadow: 
+                    0 10px 30px rgba(255, 183, 77, 2), /* Stronger yellow spike */
+                    0 0 5px rgba(255, 112, 67, 0.5);   /* Quick suppression */
+                transform: scale(1.06) rotate(0.5deg); /* Quick jump/distortion */
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- ADVANCED CANVAS STARFIELD BACKGROUND ELEMENT -->
+    <canvas id="starfieldCanvas"></canvas>
+
+    <div class="main-container">
+        <div class="profile-image-container">
+            <img 
+                src="profile1.jpg"
+                class="profile-image"
+                onerror="this.onerror=null; this.src='https://placehold.co/200x200/1a1a1a/ff7043?text=A.K.%0ACyber+Synth';"
+            >
+        </div>
+
+        <div id="wavyName" class="wavy-text"></div>
+        
+        <!-- NEW: Social Media Links -->
+        <div class="social-links">
+            <!-- YouTube Icon -->
+            <a href="https://www.youtube.com/yourusername" target="_blank" class="social-link" title="YouTube">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M228.48,76.51A23.86,23.86,0,0,0,211,62.14C193.36,58,128,58,128,58S62.64,58,45,62.14A23.86,23.86,0,0,0,27.52,76.51C23.38,94.14,23.38,128,23.38,128s0,33.86,4.14,51.49A23.86,23.86,0,0,0,45,193.86C62.64,198,128,198,128,198s65.36,0,83.05-4.14a23.86,23.86,0,0,0,17.43-14.35c4.14-17.63,4.14-51.49,4.14-51.49S232.6,94.14,228.48,76.51ZM104,158.46V97.54L156,128Z"></path></svg>
+            </a>
+            
+            <!-- GitHub Icon -->
+            <a href="https://github.com/yourusername" target="_blank" class="social-link" title="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,0,0,36.56,155.65c.5.89.5,1.4.2,2.07L32.48,167a8,8,0,0,0,3.12,11.2c.45.29,1.17.65,2.15,1.06C47.16,183.13,63,188,80,188c8.89,0,17.74-.83,26.08-2.5a8,8,0,0,0,6.2-7.85v-27.1a8,8,0,0,0-2.34-5.69c-16.71-5.69-28.79-16.51-28.79-37.49a37.81,37.81,0,0,1,10.61-26.65,39.3,39.3,0,0,1,2.83-27.67c5.15-1.16,11.39,1.52,14.61,6.58A78.29,78.29,0,0,1,128,88c8.1,0,16.2.82,23.63,2.46,3.23-5.06,9.46-7.74,14.61-6.58a39.3,39.3,0,0,1,2.83,27.67,37.81,37.81,0,0,1,10.61,26.65c0,20.98-12.08,31.8-28.79,37.49a8,8,0,0,0-2.34,5.69v27.1a8,8,0,0,0,6.2,7.85c8.34,1.67,17.19,2.5,26.08,2.5,17,0,32.84-4.87,42.53-8.89,1-.41,1.72-.77,2.15-1.06a8,8,0,0,0,3.12-11.2l-3.32-6.38c-.3-.67-.3-1.18.2-2.07A104,104,0,0,0,128,24Z"></path></svg>
+            </a>
+            
+            <!-- LinkedIn Icon -->
+            <a href="https://www.linkedin.com/in/yourusername" target="_blank" class="social-link" title="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM80,188H52V104H80ZM66,92a15,15,0,1,1,15-15A15,15,0,0,1,66,92Zm120,96H160V140c0-12.18-.75-23.73-10.74-32.55-10.64-9.24-24.93-9.92-33.26,0A32.48,32.48,0,0,0,112,140v48H84V104h27.81c.21,0,.41,0,.61,0A44.89,44.89,0,0,1,168,107.72c.42.42.84,0,1.26,0h0V104h28Z"></path></svg>
+            </a>
+        </div>
+
+
+        <div class="professions-list">
+            <a href="#developer" class="profession-link">DEVELOPER</a>
+            <a href="#editor" class="profession-link">EDITOR</a>
+            <a href="#gamer" class="profession-link">GAMER</a>
+        </div>
+    </div>
+
+    <script>
+        // --- ADVANCED CANVAS STARFIELD BACKGROUND LOGIC ---
+        let mouseX = 0;
+        let mouseY = 0;
+        const mainContainer = document.querySelector('.main-container');
+
+        function initStarfieldCanvas() {
+            const canvas = document.getElementById('starfieldCanvas');
+            const ctx = canvas.getContext('2d');
+            const numStars = 400; 
+            const stars = [];
+
+            let centerX = window.innerWidth / 2;
+            let centerY = window.innerHeight / 2;
+
+            // Set canvas size and handle responsiveness
+            const resizeCanvas = () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                centerX = canvas.width / 2;
+                centerY = canvas.height / 2;
+            };
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            
+            // Mouse movement listener for interactive parallax
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            // Handle touch events for responsiveness on mobile devices
+            window.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    mouseX = e.touches[0].clientX;
+                    mouseY = e.touches[0].clientY;
+                }
+            });
+            
+            // Initialize Stars
+            for (let i = 0; i < numStars; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    speed: (Math.random() * 0.5) + 0.1, 
+                    radius: (Math.random() * 1.5) + 0.5,
+                    depth: Math.random() * 3 + 1, 
+                    color: Math.random() > 0.4 
+                           ? `rgba(255, 112, 67, ${Math.random() * 0.8 + 0.2})` // Orange
+                           : `rgba(255, 183, 77, ${Math.random() * 0.8 + 0.2})`  // Yellow
+                });
+            }
+
+            function drawStarfield() {
+                // Clear the canvas, maintaining the black background
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Calculate parallax shift (subtle influence)
+                const parallaxX = (mouseX - centerX) * 0.05; 
+                const parallaxY = (mouseY - centerY) * 0.05; 
+
+                // Redraw all stars
+                stars.forEach(star => {
+                    // Update position (subtle upward drift)
+                    star.y -= star.speed; 
+                    
+                    // If star moves off the top edge, reset it to the bottom
+                    if (star.y < 0) {
+                        star.y = canvas.height;
+                        star.x = Math.random() * canvas.width;
+                    }
+                    
+                    // Apply parallax effect: Deeper stars (higher depth value) shift less
+                    const finalX = star.x + (parallaxX / star.depth);
+                    const finalY = star.y + (parallaxY / star.depth);
+
+                    // Draw the star
+                    ctx.beginPath();
+                    ctx.arc(finalX, finalY, star.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = star.color;
+                    ctx.shadowColor = star.color.replace(/[^,]+(?=\))/, '1'); 
+                    ctx.shadowBlur = star.radius * 3;
+                    ctx.fill();
+                });
+
+                requestAnimationFrame(drawStarfield);
+            }
+
+            drawStarfield();
+        }
+
+        window.onload = function () {
+            // Start the canvas animation
+            initStarfieldCanvas();
+            
+            // --- Wavy Text Initialization (Unchanged) ---
+            const nameContainer = document.getElementById('wavyName');
+            const nameString = "AMANPREET SINGH KHANNA";
+
+            function createWavyText() {
+                nameContainer.innerHTML = '';
+                nameString.split('').forEach((char, index) => {
+                    const span = document.createElement('span');
+                    span.textContent = char === ' ' ? '\u00A0' : char; 
+                    const delay = index * 0.05; 
+                    span.style.animationDelay = `${delay}s`;
+                    nameContainer.appendChild(span);
+                });
+            }
+            createWavyText();
+        };
+    </script>
+
+</body>
+</html>
+
   <title>Amanpreet's Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
@@ -268,3 +672,4 @@
 
 </body>
 </html>
+
