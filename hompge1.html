@@ -145,7 +145,8 @@
         
         /* New container for Wavy Text (The Name) */
         .wavy-text {
-            font-size: clamp(2.2rem, 5vw, 4rem); 
+            /* REVISED CLAMPING: Less aggressive font size scaling on larger screens */
+            font-size: clamp(2.0rem, 4vw, 3.5rem); 
             font-weight: 900;
             margin-bottom: 20px; /* Reduced margin to bring icons closer */
             display: flex;
@@ -178,8 +179,8 @@
             .wavy-text {
                 flex-wrap: wrap; /* Allow wrapping */
                 white-space: normal;
-                /* Slightly reduce the clamp minimum to ensure it fits better on small phones */
-                font-size: clamp(1.8rem, 6vw, 4rem); 
+                /* Adjust the clamp minimum to ensure it fits better on small phones */
+                font-size: clamp(1.8rem, 6vw, 3.5rem); 
             }
         }
         
