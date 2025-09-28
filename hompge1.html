@@ -10,7 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amanpreet Singh Khanna - Portfolio Home</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        /* ADDED RAJDHANI FONT FOR MINIMAL, DIGITAL LOOK */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
         :root {
             --color-black: #000000;
@@ -37,7 +38,7 @@
         
         /* --- Main Content Styles (Full-Screen Hero) --- */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', sans-serif; /* Inter for general body text */
             background-color: var(--color-black); 
             color: var(--color-text);
             /* Full-screen Flexbox centering */
@@ -47,7 +48,7 @@
             min-height: 100vh;
             margin: 0;
             padding: 20px;
-            overflow: hidden; 
+            overflow: hidden; /* Prevent scrolling entirely */
             position: relative;
         }
 
@@ -145,13 +146,15 @@
         
         /* New container for Wavy Text (The Name) */
         .wavy-text {
-            /* FINAL REVISION: Drastically reduced max font size (3.5rem -> 3.0rem) */
-            font-size: clamp(2.0rem, 3.5vw, 3.0rem); 
-            font-weight: 900;
-            margin-bottom: 20px; /* Reduced margin to bring icons closer */
+            /* NEW: Rajdhani font applied here */
+            font-family: 'Rajdhani', sans-serif; 
+            font-size: clamp(2.2rem, 3.5vw, 2.8rem); 
+            font-weight: 700; /* Using 700 weight for sharpness */
+            margin-bottom: 20px; 
             display: flex;
             justify-content: center;
-            /* DEFAULT: Force single line for laptops/desktops */
+            
+            /* DEFAULT (Laptop/Desktop): Force single line */
             flex-wrap: nowrap; 
             white-space: nowrap; 
         }
@@ -174,17 +177,25 @@
             100% { transform: translateY(-5px) scale(1.05); }
         }
 
-        /* --- MOBILE MEDIA QUERY: Allow name to wrap on very narrow screens --- */
+        /* --- MOBILE MEDIA QUERY: Allow name to wrap, forcing KHANNA to break --- */
         @media (max-width: 640px) {
             .wavy-text {
-                flex-wrap: wrap; /* Allow wrapping */
+                /* Allow wrapping on mobile */
+                flex-wrap: wrap; 
                 white-space: normal;
-                /* Consistent max size for mobile */
-                font-size: clamp(1.8rem, 6vw, 3.0rem); 
+                /* Adjusted mobile size for better legibility */
+                font-size: clamp(1.8rem, 6vw, 2.3rem); 
+            }
+
+            /* GUARANTEED BREAK POINT: Force KHANNA to a new line on small screens */
+            .mobile-break-point:after {
+                content: "\A"; /* Injects a newline character */
+                white-space: pre; /* Renders the newline character as a line break */
+                display: block; /* Forces the newline to act as a block separator */
             }
         }
         
-        /* --- NEW: Social Media Icons Layout --- */
+        /* --- Social Media Icons Layout --- */
         .social-links {
             margin-bottom: 50px; /* Space between icons and buttons */
             display: flex;
@@ -218,7 +229,6 @@
 
         .profession-link {
             text-decoration: none;
-            /* Restoring simple padding for single-line text */
             padding: 15px 30px; 
             border-radius: 50px;
             font-weight: 700; 
@@ -230,14 +240,10 @@
             text-transform: uppercase;
             position: relative;
             overflow: hidden;
-            
-            /* Removing status-related flex styles */
             display: block; 
             line-height: normal; 
+            font-family: 'Inter', sans-serif; /* Keeping button text in Inter */
         }
-        
-        /* Removing status tag styles (was .module-status) */
-
 
         .profession-link:hover {
             transform: translateY(-5px) scale(1.05); /* Slight lift */
@@ -256,7 +262,6 @@
                 transform: scale(1.06) rotate(0.5deg); /* Quick jump/distortion */
             }
         }
-        
     </style>
 </head>
 <body>
@@ -268,7 +273,7 @@
         <div class="profile-image-container">
             <!-- 
                 PROFILE IMAGE: 
-                The source is now set to 'profile1.jpg', which you can upload separately. 
+                The source is set to 'profile1.jpg'. Please upload your image with this filename.
             -->
             <img 
                 src="profile1.jpg"
@@ -277,16 +282,17 @@
             >
         </div>
 
+        <!-- The Wavy Name Display - Now using Rajdhani font -->
         <div id="wavyName" class="wavy-text"></div>
         
-        <!-- NEW: Social Media Links -->
+        <!-- Social Media Links -->
         <div class="social-links">
-            <!-- YouTube Icon (Already set) -->
+            <!-- YouTube Icon (Set to @therealstriker863) -->
             <a href="https://www.youtube.com/@therealstriker863" target="_blank" class="social-link" title="@therealstriker863 | YouTube">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M228.48,76.51A23.86,23.86,0,0,0,211,62.14C193.36,58,128,58,128,58S62.64,58,45,62.14A23.86,23.86,0,0,0,27.52,76.51C23.38,94.14,23.38,128,23.38,128s0,33.86,4.14,51.49A23.86,23.86,0,0,0,45,193.86C62.64,198,128,198,128,198s65.36,0,83.05-4.14a23.86,23.86,0,0,0,17.43-14.35c4.14-17.63,4.14-51.49,4.14-51.49S232.6,94.14,228.48,76.51ZM104,158.46V97.54L156,128Z"></path></svg>
             </a>
             
-            <!-- GitHub Icon (Placeholder - Please provide your GitHub URL to replace 'https://github.com/yourusername') -->
+            <!-- GitHub Icon (Placeholder - Please provide your GitHub URL) -->
             <a href="https://github.com/yourusername" target="_blank" class="social-link" title="GitHub">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,0,0,36.56,155.65c.5.89.5,1.4.2,2.07L32.48,167a8,8,0,0,0,3.12,11.2c.45.29,1.17.65,2.15,1.06C47.16,183.13,63,188,80,188c8.89,0,17.74-.83,26.08-2.5a8,8,0,0,0,6.2-7.85v-27.1a8,8,0,0,0-2.34-5.69c-16.71-5.69-28.79-16.51-28.79-37.49a37.81,37.81,0,0,1,10.61-26.65,39.3,39.3,0,0,1,2.83-27.67c5.15-1.16,11.39,1.52,14.61,6.58A78.29,78.29,0,0,1,128,88c8.1,0,16.2.82,23.63,2.46,3.23-5.06,9.46-7.74,14.61-6.58a39.3,39.3,0,0,1,2.83,27.67,37.81,37.81,0,0,1,10.61,26.65c0,20.98-12.08,31.8-28.79,37.49a8,8,0,0,0-2.34,5.69v27.1a8,8,0,0,0,6.2,7.85c8.34,1.67,17.19,2.5,26.08,2.5,17,0,32.84-4.87,42.53-8.89,1-.41,1.72-.77,2.15-1.06a8,8,0,0,0,3.12-11.2l-3.32-6.38c-.3-.67-.3-1.18.2-2.07A104,104,0,0,0,128,24Z"></path></svg>
             </a>
@@ -299,9 +305,10 @@
 
 
         <div class="professions-list">
-            <a href="devpge1.html" class="profession-link">DEVELOPER</a>
-            <a href="#editor" class="profession-link">EDITOR</a>
-            <a href="#gamer" class="profession-link">GAMER</a>
+            <!-- These links are placeholders -->
+            <a href="#" class="profession-link">DEVELOPER</a>
+            <a href="#" class="profession-link">EDITOR</a>
+            <a href="#" class="profession-link">GAMER</a>
         </div>
     </div>
 
@@ -309,7 +316,9 @@
         // --- ADVANCED CANVAS STARFIELD BACKGROUND LOGIC ---
         let mouseX = 0;
         let mouseY = 0;
-        const mainContainer = document.querySelector('.main-container');
+        
+        // This is a global change to ensure the body handles scrolling correctly
+        document.body.style.display = 'block';
 
         function initStarfieldCanvas() {
             const canvas = document.getElementById('starfieldCanvas');
@@ -399,15 +408,32 @@
             // Start the canvas animation
             initStarfieldCanvas();
             
-            // --- Wavy Text Initialization (Unchanged) ---
+            // --- Wavy Text Initialization (Updated for guaranteed break) ---
             const nameContainer = document.getElementById('wavyName');
             const nameString = "AMANPREET SINGH KHANNA";
 
             function createWavyText() {
                 nameContainer.innerHTML = '';
+                
+                // The space before 'KHANNA' is at index 15.
+                const breakIndex = 15; 
+
                 nameString.split('').forEach((char, index) => {
                     const span = document.createElement('span');
-                    span.textContent = char === ' ' ? '\u00A0' : char; 
+                    
+                    if (char === ' ') {
+                        if (index === breakIndex) {
+                             span.textContent = ' '; // Regular space
+                             // Add a class to this specific space span to trigger the CSS line break
+                             span.classList.add('mobile-break-point'); 
+                        } else {
+                            // Use non-breaking space for the space between AMANPREET and SINGH
+                            span.textContent = '\u00A0';
+                        }
+                    } else {
+                        span.textContent = char;
+                    }
+
                     const delay = index * 0.05; 
                     span.style.animationDelay = `${delay}s`;
                     nameContainer.appendChild(span);
@@ -419,5 +445,3 @@
 
 </body>
 </html>
-
-
