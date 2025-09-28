@@ -41,7 +41,7 @@
             font-family: 'Inter', sans-serif; /* Inter for general body text */
             background-color: var(--color-black); 
             color: var(--color-text);
-            /* Full-screen Flexbox centering */
+            /* Full-screen Flexbox centering - This ensures the content is centered */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -317,8 +317,7 @@
         let mouseX = 0;
         let mouseY = 0;
         
-        // This is a global change to ensure the body handles scrolling correctly
-        document.body.style.display = 'block';
+        // REMOVED: document.body.style.display = 'block'; - This was breaking CSS centering.
 
         function initStarfieldCanvas() {
             const canvas = document.getElementById('starfieldCanvas');
@@ -445,4 +444,3 @@
 
 </body>
 </html>
-
